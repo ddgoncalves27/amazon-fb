@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get your $1500 Amazon Gift Card - Join 287K+ people claiming free shopping rewards">
+    <title>Amazon Gift Card - Get $1500 Free | Claim Now</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #FFFFFF;
+            color: #000000;
+            line-height: 1.4;
+            overflow-x: hidden;
+            overflow-y: visible;
+            min-height: 100vh;
+        }
+
+        /* Container - UPDATED: Removed max-width */
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            overflow: visible;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0 16px;
+        }
+
+        .logo img {
+            max-width: 220px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Progress Dots */
+        .progress-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .progress-dots {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .dot {
+            width: 16px;
+            height: 16px;
+            background: #d5d5d5;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dot.active {
+            background: #FF9900;
+        }
+
+        .dot:first-child {
+            margin-right: 40px;
+        }
+
+        .progress-dots::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            right: 8px;
+            height: 2px;
+            background: #d5d5d5;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 15px 20px 30px;
+            overflow: visible;
+        }
+
+        .wave-emoji {
+            font-size: 46px;
+            margin-bottom: 20px;
+        }
+
+        .location-text {
+            font-size: 17px;
+            color: #666;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+            font-weight: 400;
+        }
+
+        .flag {
+            font-size: 20px;
+            margin-left: 8px;
+        }
+
+        h1 {
+            font-size: 68px;
+            font-weight: 900;
+            line-height: 0.9;
+            margin: 0 auto 20px;
+            letter-spacing: -2.5px;
+            text-transform: uppercase;
+            color: #000;
+            font-family: 'Inter', Arial Black, sans-serif;
+            /* UPDATED: Removed max-width */
+        }
+
+        .description {
+            font-size: 19px;
+            line-height: 1.4;
+            color: #4a4a4a;
+            margin-bottom: 22px;
+            max-width: 800px; /* UPDATED: Increased from 640px for better readability on wide screens */
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .emoji-accent {
+            font-size: 30px;
+            margin: 15px 0 20px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: block;
+            width: calc(100% - 40px);
+            max-width: 600px; /* UPDATED: Increased from 480px */
+            margin: 25px auto 30px;
+            background: #FF9900;
+            color: #FFFFFF;
+            padding: 30px 40px;
+            font-size: 30px;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 16px;
+            transition: all 0.15s ease;
+            letter-spacing: -1px;
+            font-family: 'Inter', Arial Black, -apple-system, BlinkMacSystemFont, sans-serif;
+            text-align: center;
+            border: none;
+            position: relative;
+            line-height: 1;
+            box-shadow: 0 4px 14px rgba(255, 153, 0, 0.25);
+            text-transform: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #E88B00;
+            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.3);
+        }
+
+        .arrow {
+            display: inline-block;
+            margin-left: 20px;
+            font-size: 34px;
+            transition: transform 0.15s ease;
+            font-weight: 400;
+            line-height: 0;
+            position: relative;
+            top: 2px;
+        }
+
+        .cta-button:hover .arrow {
+            transform: translateX(7px);
+        }
+
+        /* Rating */
+        .rating-section {
+            margin-top: 25px;
+            padding-bottom: 10px;
+        }
+
+        .stars {
+            color: #FFB800;
+            font-size: 17px;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* Influencer Section - UPDATED: Full width background */
+        .influencer-section {
+            margin-top: 45px;
+            padding: 50px 20px 45px;
+            overflow: visible;
+            background: linear-gradient(to bottom, #FAFAFA 0%, #FFFFFF 100%);
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .influencer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: #FF9900;
+            border-radius: 1px;
+        }
+
+        .section-decoration {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #FF9900;
+            font-weight: 700;
+        }
+
+        .promoted-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #222;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .influencer-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 32px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .influencer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+            gap: 22px 18px;
+            margin-bottom: 10px;
+            max-width: 1200px; /* UPDATED: Increased from 680px */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 15px;
+            overflow: visible;
+        }
+
+        .influencer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            padding: 8px 4px;
+            overflow: visible;
+        }
+
+        .influencer-item:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (hover: none) {
+            .influencer-item:hover {
+                transform: none;
+            }
+        }
+
+        .influencer-avatar-wrapper {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            overflow: visible;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .influencer-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #f5f5f5;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: #f8f8f8;
+        }
+
+        .influencer-item:hover .influencer-photo {
+            transform: scale(1.03);
+        }
+
+        @media (hover: none) {
+            .influencer-item:hover .influencer-photo {
+                transform: none;
+            }
+        }
+
+        .verified-check {
+            position: absolute;
+            top: -7px;
+            right: -7px;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            padding: 1px;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .influencer-item:hover .verified-check {
+            transform: scale(1.1);
+        }
+
+        .influencer-name {
+            font-size: 11px;
+            color: #666;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.2;
+            width: 100%;
+            word-wrap: break-word;
+        }
+
+        .completion-info {
+            font-size: 9px;
+            color: #999;
+            font-weight: 400;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* Desktop - Large Screens */
+        @media (min-width: 1400px) {
+            .container {
+                padding: 0 60px;
+            }
+            
+            h1 {
+                font-size: 80px;
+            }
+            
+            .description {
+                max-width: 900px;
+                font-size: 21px;
+            }
+            
+            .influencer-grid {
+                max-width: 1400px;
+                gap: 30px 25px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header {
+                padding: 16px 0 12px;
+            }
+            
+            .logo img {
+                max-width: 180px;
+            }
+            
+            h1 {
+                font-size: 40px;
+                letter-spacing: -1.5px;
+                line-height: 0.9;
+            }
+
+            .cta-button {
+                font-size: 26px;
+                padding: 26px 30px;
+                width: calc(100% - 30px);
+                margin: 20px auto 25px;
+                letter-spacing: -0.8px;
+            }
+            
+            .arrow {
+                font-size: 30px;
+                margin-left: 16px;
+            }
+            
+            .description {
+                font-size: 16px;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            
+            .location-text {
+                font-size: 15px;
+            }
+            
+            .wave-emoji {
+                font-size: 38px;
+                margin-bottom: 18px;
+            }
+            
+            .emoji-accent {
+                font-size: 26px;
+            }
+
+            .influencer-section {
+                padding: 40px 15px 35px;
+                margin-top: 35px;
+            }
+
+            .influencer-section::before {
+                width: 40px;
+            }
+
+            .section-decoration {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .promoted-title {
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+
+            .influencer-subtitle {
+                font-size: 14px;
+                margin-bottom: 22px;
+            }
+
+            .influencer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px 10px;
+                padding: 0 15px;
+            }
+
+            .influencer-avatar-wrapper {
+                width: 55px;
+                height: 55px;
+            }
+
+            .verified-check {
+                width: 18px;
+                height: 18px;
+                top: -5px;
+                right: -5px;
+                padding: 0.5px;
+            }
+
+            .influencer-item {
+                padding: 6px 0;
+                gap: 6px;
+            }
+
+            .influencer-name {
+                font-size: 10px;
+                line-height: 1.2;
+            }
+
+            .completion-info {
+                font-size: 8px;
+            }
+        }
+
+        /* Very small mobile */
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .logo img {
+                max-width: 150px;
+            }
+            
+            .cta-button {
+                font-size: 22px;
+                padding: 22px 25px;
+                letter-spacing: -0.5px;
+            }
+            
+            .arrow {
+                font-size: 26px;
+                margin-left: 12px;
+            }
+
+            .influencer-grid {
+                gap: 15px 8px;
+                padding: 0 10px;
+            }
+
+            .influencer-avatar-wrapper {
+                width: 45px;
+                height: 45px;
+            }
+
+            .verified-check {
+                width: 16px;
+                height: 16px;
+                top: -3px;
+                right: -3px;
+            }
+
+            .influencer-name {
+                font-size: 9px;
+            }
+
+            .completion-info {
+                font-size: 7px;
+            }
+
+            .influencer-item {
+                padding: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dynamic Source Script -->
+    <script>
+        // Function to get source code from URL
+        function getSourceCode() {
+            const hostname = window.location.hostname;
+            const pathname = window.location.pathname;
+            let sourceCode = 'xxx'; // default
+            
+            // Check if there's a path segment (e.g., example.com/romao)
+            const pathSegments = pathname.split('/').filter(segment => segment);
+            if (pathSegments.length > 0 && pathSegments[0].length >= 3) {
+                sourceCode = pathSegments[0].substring(0, 3).toLowerCase();
+            }
+            // Alternative: Check for subdomain (e.g., romao.example.com)
+            else {
+                const subdomainMatch = hostname.split('.');
+                if (subdomainMatch.length > 2 && subdomainMatch[0].length >= 3) {
+                    sourceCode = subdomainMatch[0].substring(0, 3).toLowerCase();
+                }
+            }
+            
+            return sourceCode;
+        }
+        
+        // Function to update all CTA links
+        function updateCTALinks() {
+            const sourceCode = getSourceCode();
+            const baseURL = 'https://rewarduplevel.com/aff_c?offer_id=2588&aff_id=1359&source=';
+            const newURL = baseURL + sourceCode;
+            
+            // Update all CTA buttons
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.href = newURL;
+            });
+        }
+        
+        // Run when DOM is loaded
+        document.addEventListener('DOMContentLoaded', updateCTALinks);
+    </script>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Gift Card" />
+            </div>
+        </header>
+
+        <!-- Progress Dots -->
+        <div class="progress-container">
+            <div class="progress-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="wave-emoji">🎁</div>
+            
+            <div class="location-text">
+                AVAILABLE FOR USERS IN: <span class="flag">🇺🇸</span>
+            </div>
+
+            <h1 style="color: #FF9900;">GET YOUR $1500</h1>
+            <h1>AMAZON GIFT CARD</h1>
+
+            <p class="description">
+                Claim your exclusive $1500 Amazon gift card. Answer a few questions. 
+                Complete 3 quick deals. Get instant access to shop for anything on Amazon. 
+                Join 287K+ people who earned their shopping rewards. Ready to start?
+            </p>
+
+            <div class="emoji-accent">💳 🛍️</div>
+
+            <a href="https://rewarduplevel.com/aff_c?offer_id=2588&aff_id=1359&source=xxx" class="cta-button">
+                Get Started <span class="arrow">→</span>
+            </a>
+
+            <div class="rating-section">
+                <div class="stars">★★★★★</div>
+                <div class="rating-text">4.8 stars from 12,847 verified claims - Average completion time: 12 minutes</div>
+            </div>
+
+            <!-- Winner Section (using same influencer layout) -->
+            <div class="influencer-section">
+                <div class="section-decoration">✓</div>
+                <h2 class="promoted-title">Recent Winners</h2>
+                <p class="influencer-subtitle">People who claimed their $1500 Amazon gift cards today by answering questions, providing their info, and completing 3+ deals</p>
+                <div class="influencer-grid">
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#FF9900"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Sarah M.<br>Los Angeles<br><span class="completion-info">Completed 3 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Michael R.<br>Houston<br><span class="completion-info">Completed 4 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Jennifer K.<br>Phoenix<br><span class="completion-info">Completed 3 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">David L.<br>Miami<br><span class="completion-info">Completed 5 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Lisa T.<br>Chicago<br><span class="completion-info">Completed 3 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Robert P.<br>New York<br><span class="completion-info">Completed 6 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Maria G.<br>Dallas<br><span class="completion-info">Completed 3 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Kevin W.<br>Boston<br><span class="completion-info">Completed 4 deals</span></span>
+                    </div>
+                    <div class="influencer-item">
+                        <div class="influencer-avatar-wrapper">
+                            <div class="influencer-photo">👤</div>
+                            <svg class="verified-check" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.5 12.5C22.5 10.92 21.625 9.55 20.352 8.9C20.547 8.172 20.492 7.375 20.117 6.617C19.742 5.86 19.102 5.273 18.344 4.977C18.203 4.203 17.766 3.492 17.078 3.008C16.391 2.524 15.547 2.329 14.742 2.447C14.18 1.711 13.38 1.25 12.5 1.25C11.62 1.25 10.82 1.711 10.258 2.447C9.453 2.329 8.609 2.524 7.922 3.008C7.234 3.492 6.797 4.203 6.656 4.977C5.898 5.273 5.258 5.86 4.883 6.617C4.508 7.375 4.453 8.172 4.648 8.9C3.375 9.55 2.5 10.92 2.5 12.5C2.5 14.08 3.375 15.45 4.648 16.1C4.453 16.828 4.508 17.625 4.883 18.383C5.258 19.14 5.898 19.727 6.656 20.023C6.797 20.797 7.234 21.508 7.922 21.992C8.609 22.476 9.453 22.671 10.258 22.553C10.82 23.289 11.62 23.75 12.5 23.75C13.38 23.75 14.18 23.289 14.742 22.553C15.547 22.671 16.391 22.476 17.078 21.992C17.766 21.508 18.203 20.797 18.344 20.023C19.102 19.727 19.742 19.14 20.117 18.383C20.492 17.625 20.547 16.828 20.352 16.1C21.625 15.45 22.5 14.08 22.5 12.5Z" fill="#00A8E8"/>
+                                <path d="M11.375 15.375L8.625 12.625L9.875 11.375L11.375 12.875L15.125 9.125L16.375 10.375L11.375 15.375Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="influencer-name">Sandra L.<br>Seattle<br><span class="completion-info">Completed 3 deals</span></span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
