@@ -7,7 +7,7 @@
     <title>Amazon Gift Card - Get $1500 Free | Claim Now</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
     
-    <!-- Facebook Pixel Code -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,23 +17,13 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    
-    // Wait for fbq to be ready before tracking
     fbq('init', '593018253855738');
-    
-    // Disable automatic configuration first
-    fbq('set', 'autoConfig', 'false', '593018253855738');
-    
-    // Use setTimeout to ensure pixel is fully loaded
-    setTimeout(function() {
-        // Track standard PageView event
-        fbq('track', 'PageView');
-    }, 100);
+    fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=593018253855738&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Facebook Pixel Code -->
+    <!-- End Meta Pixel Code -->
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
@@ -615,17 +605,12 @@
         function addPixelTracking() {
             const ctaButtons = document.querySelectorAll('.cta-button');
             ctaButtons.forEach(button => {
-                // Add data attribute to prevent Facebook auto-detection
-                button.setAttribute('data-fb-ignore', 'true');
-                
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function(e) {
                     // Track ViewContent event when button is clicked
                     if (typeof fbq !== 'undefined') {
                         fbq('track', 'ViewContent', {
-                            content_ids: ['amazon-gift-card-1500'],
-                            content_type: 'product',
-                            content_name: 'Amazon $1500 Gift Card',
-                            content_category: 'Gift Card',
+                            content_name: 'Amazon Gift Card $1500',
+                            content_category: 'Gift Cards',
                             value: 1500.00,
                             currency: 'USD'
                         });
