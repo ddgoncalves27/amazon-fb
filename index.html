@@ -17,15 +17,9 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    .animate-slide-up {
-      animation: slideUp 0.6s ease-out forwards;
-    }
-    .animate-fade-in {
-      animation: fadeIn 0.4s ease-in forwards;
-    }
-    body {
-      font-family: 'Arial', sans-serif; /* Fallback for Amazon Ember */
-    }
+    .animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
+    .animate-fade-in { animation: fadeIn 0.8s ease-in forwards; }
+    body { font-family: 'Arial', sans-serif; }
     .quiz-container {
       background: linear-gradient(180deg, #f5f6f5 0%, #ffffff 100%);
       border-radius: 12px;
@@ -35,24 +29,65 @@
     .quiz-option {
       transition: background-color 0.2s ease, transform 0.1s ease;
       cursor: pointer;
-      -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+      -webkit-tap-highlight-color: transparent;
     }
-    .quiz-option:hover, .quiz-option:active {
-      transform: scale(1.03);
-    }
+    .quiz-option:hover, .quiz-option:active { transform: scale(1.03); }
     .progress-bar {
       height: 4px;
       background-color: #0066c0;
       transition: width 0.3s ease;
     }
     @media (max-width: 640px) {
-      .quiz-option {
-        padding: 16px;
-        font-size: 1.1rem;
-      }
-      .quiz-container {
-        padding: 16px;
-      }
+      .quiz-option { padding: 16px; font-size: 1.1rem; }
+      .quiz-container { padding: 16px; }
+    }
+    .feedback-container {
+      background: #f9fafb;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+    .feedback-card {
+      position: relative;
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .feedback-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    .feedback-quote {
+      font-style: italic;
+      color: #374151;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .feedback-name {
+      font-weight: 700;
+      color: #1f2937;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    .feedback-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      border: 2px solid #e5e7eb;
+    }
+    .feedback-card::before {
+      content: '“';
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 4rem;
+      color: #e5e7eb;
+      z-index: 0;
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -159,7 +194,6 @@
                 <p className="text-lg sm:text-xl mb-10 text-gray-700 max-w-3xl mx-auto">
                   Answer three quick questions to unlock your entry for a chance to shop on Amazon!
                 </p>
-                {/* Quiz Section */}
                 <div className="quiz-container p-6 sm:p-8 max-w-full sm:max-w-2xl mx-auto">
                   <div className="progress-bar" style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}></div>
                   <p className="text-lg sm:text-xl font-semibold mb-4 animate-fade-in text-center">
@@ -244,21 +278,55 @@
           {/* Testimonials Section */}
           <section className="py-16 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 animate-slide-up">
-                Participant Feedback
+              <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-slide-up text-gray-900">
+                Real Stories from Real Participants
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-                <div className="bg-gray-50 p-6 rounded-md border border-gray-200 animate-slide-up">
-                  <p className="text-base text-gray-600 mb-4">
-                    "The quiz was quick and got me excited to win!"
-                  </p>
-                  <p className="text-base font-semibold text-gray-900">– Emma W.</p>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-md border border-gray-200 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                  <p className="text-base text-gray-600 mb-4">
-                    "Super easy and fun way to enter the sweepstakes!"
-                  </p>
-                  <p className="text-base font-semibold text-gray-900">– Noah J.</p>
+              <div className="feedback-container">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="feedback-card animate-fade-in">
+                    <div className="flex items-start">
+                      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ava P." className="feedback-avatar" />
+                      <div>
+                        <p className="feedback-quote">
+                          "I stumbled across this while scrolling, and honestly, it was a blast to answer the questions. Took me maybe 45 seconds, and now I’m imagining all the books I’d snag with that $1500!"
+                        </p>
+                        <p className="feedback-name">Ava P., Seattle</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="feedback-card animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                    <div className="flex items-start">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Liam J." className="feedback-avatar" />
+                      <div>
+                        <p className="feedback-quote">
+                          "Super quick and actually fun—way better than those boring forms. I’m keeping my fingers crossed for the win. That gift card would upgrade my gaming setup big time."
+                        </p>
+                        <p className="feedback-name">Liam J., Austin</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="feedback-card animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                    <div className="flex items-start">
+                      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sofia M." className="feedback-avatar" />
+                      <div>
+                        <p className="feedback-quote">
+                          "I’ve entered tons of sweepstakes, but this one felt different—smooth, clear, and legit. I’d splurge on kitchen gadgets if I win. Highly recommend giving it a shot!"
+                        </p>
+                        <p className="feedback-name">Sofia M., Chicago</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="feedback-card animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                    <div className="flex items-start">
+                      <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Ethan K." className="feedback-avatar" />
+                      <div>
+                        <p className="feedback-quote">
+                          "Took a minute out of my day, and it was worth it. The vibe is chill, not pushy, and I’m hyped at the thought of scoring that Amazon cash. Let’s go!"
+                        </p>
+                        <p className="feedback-name">Ethan K., Denver</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
