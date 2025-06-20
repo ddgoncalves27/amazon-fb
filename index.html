@@ -55,7 +55,7 @@
       const questions = [
         {
           id: 'q1',
-          text: 'Do you live in the USA?',
+          text: 'Are you a U.S. resident?',
           description: 'We are looking for participants from the U.S. to join this exciting sweepstakes!',
           options: [
             { value: 'yes', text: 'Yes' },
@@ -65,7 +65,7 @@
         },
         {
           id: 'q2',
-          text: 'How often do you shop at Amazon?',
+          text: 'What’s your Amazon shopping habit?',
           description: '',
           options: [
             { value: 'daily', text: 'Daily' },
@@ -77,7 +77,7 @@
         },
         {
           id: 'q3',
-          text: 'How do you usually discover deals and promotions at Amazon?',
+          text: 'Where do you find Amazon deals?',
           description: '',
           options: [
             { value: 'flyers', text: 'Store flyers' },
@@ -133,11 +133,14 @@
                   !showButton ? (
                     <div className="quiz-container p-6 sm:p-8 max-w-full sm:max-w-2xl mx-auto">
                       <div className="progress-bar" style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}></div>
-                      <p className="text-2xl sm:text-3xl font-semibold mb-4 animate-fade-in text-center">
-                        Question {currentQuestion + 1} of {questions.length}:<br/>{questions[currentQuestion].text}
+                      <p className="text-lg sm:text-xl font-semibold mb-2 animate-fade-in text-center">
+                        Question {currentQuestion + 1} of 3:
+                      </p>
+                      <p className="text-2xl sm:text-3xl font-bold mb-4 animate-fade-in text-center">
+                        {questions[currentQuestion].text}
                       </p>
                       {questions[currentQuestion].description && (
-                        <p className="text-sm sm:text-base text-gray-600 mb-6 animate-fade-in text-center">
+                        <p className="text-base sm:text-lg text-gray-600 mb-6 animate-fade-in text-center">
                           {questions[currentQuestion].description}
                         </p>
                       )}
