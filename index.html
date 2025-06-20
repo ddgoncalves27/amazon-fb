@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get your $1500 Amazon Gift Card - Join 287K+ people claiming free shopping rewards">
-    <title>Amazon Gift Card - Get $1500 Free | Claim Now</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
-    
-    <!-- Facebook Pixel Code -->
-    <script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$1500 Amazon Gift Card - Enter Now!</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@6.26.0/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.6s ease-out forwards;
+    }
+    body {
+      font-family: 'Arial', sans-serif; /* Fallback for Amazon Ember */
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -17,409 +30,135 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('set', 'autoConfig', 'false', '593018253855738');
     fbq('init', '593018253855738');
     fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=593018253855738&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Facebook Pixel Code -->
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background: #FFFFFF;
-            color: #000000;
-            line-height: 1.4;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        /* Header */
-        .header {
-            padding: 20px 0;
-        }
-
-        .logo img {
-            max-width: 220px;
-            height: auto;
-        }
-
-        /* Progress */
-        .progress-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .dot {
-            width: 16px;
-            height: 16px;
-            background: #ddd;
-            border-radius: 50%;
-            position: relative;
-            z-index: 2;
-        }
-
-        .dot.active {
-            background: #FF9900;
-        }
-
-        .progress-dots::before {
-            content: '';
-            position: absolute;
-            left: calc(50% - 28px);
-            right: calc(50% - 28px);
-            height: 2px;
-            background: #ddd;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 30px 20px;
-        }
-
-        .gift-emoji {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .location-badge {
-            font-size: 17px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 60px;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 30px;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-        }
-
-        .highlight {
-            color: #FF9900;
-        }
-
-        .description {
-            font-size: 19px;
-            color: #4a4a4a;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.5;
-        }
-
-        .emoji-row {
-            font-size: 32px;
-            margin: 20px 0;
-        }
-
-        /* Action Link Button */
-        .action-link {
-            display: inline-block;
-            background: #FF9900;
-            color: white !important;
-            padding: 25px 50px;
-            font-size: 28px;
-            font-weight: 900;
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-            letter-spacing: -0.5px;
-            margin: 20px 0;
-            cursor: pointer;
-            border: none;
-            position: relative;
-            z-index: 10;
-        }
-
-        .action-link:hover {
-            background: #E88B00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
-        }
-
-        .arrow {
-            display: inline-block;
-            margin-left: 10px;
-            transition: transform 0.2s ease;
-        }
-
-        .action-link:hover .arrow {
-            transform: translateX(5px);
-        }
-
-        /* Rating */
-        .rating {
-            margin: 30px 0;
-        }
-
-        .stars {
-            color: #FFB800;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .rating-text {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* Winners Section */
-        .winners-section {
-            background: #FAFAFA;
-            padding: 50px 20px;
-            margin-top: 50px;
-        }
-
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-subtitle {
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .winners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .winner {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .winner-avatar {
-            width: 60px;
-            height: 60px;
-            background: #f0f0f0;
-            border-radius: 50%;
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            position: relative;
-        }
-
-        .verified {
-            position: absolute;
-            bottom: -5px;
-            right: -5px;
-            width: 20px;
-            height: 20px;
-            background: #00A8E8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-        }
-
-        .winner-name {
-            font-size: 12px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .winner-location {
-            font-size: 11px;
-            color: #666;
-        }
-
-        .winner-deals {
-            font-size: 10px;
-            color: #999;
-            font-style: italic;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 40px;
-            }
-            
-            .action-link {
-                font-size: 24px;
-                padding: 20px 40px;
-            }
-            
-            .description {
-                font-size: 17px;
-                padding: 0 10px;
-            }
-            
-            .winners-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-    </style>
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=593018253855738&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+  <div id="root"></div>
+  <script type="text/babel">
+    function App() {
+      const handleButtonClick = () => {
+        fbq('track', 'ViewContent');
+      };
+      return (
+        <div className="min-h-screen bg-gray-100 text-gray-900">
+          {/* Header */}
+          <header className="bg-gray-900 text-white fixed w-full top-0 z-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-center items-center">
+              <img
+                src="https://www.pngplay.com/wp-content/uploads/3/White-Amazon-Logo-PNG-HD-Quality.png"
+                alt="Amazon Logo"
+                className="h-8 sm:h-10 object-contain"
+              />
             </div>
-        </header>
-
-        <!-- Progress -->
-        <div class="progress-dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-        </div>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="gift-emoji">🎁</div>
-            
-            <div class="location-badge">
-                AVAILABLE FOR USERS IN: 🇺🇸
+          </header>
+          {/* Hero Section */}
+          <section className="pt-20 pb-16 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+              <div className="animate-slide-up">
+                <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-gray-900">
+                  Chance to Win a $1500 Amazon Gift Card!
+                </h1>
+                <p className="text-lg sm:text-xl mb-10 text-gray-700 max-w-3xl mx-auto">
+                  Follow three simple steps to enter for your chance to shop millions of products on Amazon.
+                </p>
+                <a
+                  href="https://rewarduplevel.com/aff_c?offer_id=2588&aff_id=1359"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#F7CA00] text-gray-900 font-semibold py-5 px-14 sm:px-20 rounded-md text-xl sm:text-2xl hover:bg-[#F4B800] transition duration-300 shadow-sm hover:shadow-md"
+                  id="cta"
+                  onClick={handleButtonClick}
+                >
+                  Start Your Entry
+                </a>
+                <p className="mt-4 text-sm text-gray-500">
+                  *No purchase necessary. See terms on offer page.
+                </p>
+              </div>
             </div>
-
-            <h1>
-                <span class="highlight">GET YOUR $1500</span><br>
-                AMAZON GIFT CARD
-            </h1>
-
-            <p class="description">
-                Claim your exclusive $1500 Amazon gift card. Answer a few questions. 
-                Complete 3 quick deals. Get instant access to shop for anything on Amazon. 
-                Join 287K+ people who earned their shopping rewards. Ready to start?
-            </p>
-
-            <div class="emoji-row">💳 🛍️</div>
-
-            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2588&aff_id=1359" class="action-link" data-fb-ignore="1" onclick="fbq('track', 'ViewContent', {content_name: 'Amazon Gift Card Offer', value: 1500, currency: 'USD'});">
-                Get Started <span class="arrow">→</span>
-            </a>
-
-            <div class="rating">
-                <div class="stars">★★★★★</div>
-                <div class="rating-text">4.8 stars from 12,847 verified claims</div>
-            </div>
-        </main>
-
-        <!-- Winners Section -->
-        <section class="winners-section">
-            <div class="container">
-                <div style="font-size: 28px; color: #FF9900; margin-bottom: 10px;">✓</div>
-                <h2 class="section-title">Recent Winners</h2>
-                <p class="section-subtitle">People who claimed their $1500 Amazon gift cards today</p>
-                
-                <div class="winners-grid">
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">Sarah M.</div>
-                        <div class="winner-location">Los Angeles</div>
-                        <div class="winner-deals">3 deals completed</div>
-                    </div>
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">Michael R.</div>
-                        <div class="winner-location">Houston</div>
-                        <div class="winner-deals">4 deals completed</div>
-                    </div>
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">Jennifer K.</div>
-                        <div class="winner-location">Phoenix</div>
-                        <div class="winner-deals">3 deals completed</div>
-                    </div>
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">David L.</div>
-                        <div class="winner-location">Miami</div>
-                        <div class="winner-deals">5 deals completed</div>
-                    </div>
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">Lisa T.</div>
-                        <div class="winner-location">Chicago</div>
-                        <div class="winner-deals">3 deals completed</div>
-                    </div>
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">Robert P.</div>
-                        <div class="winner-location">New York</div>
-                        <div class="winner-deals">6 deals completed</div>
-                    </div>
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">Maria G.</div>
-                        <div class="winner-location">Dallas</div>
-                        <div class="winner-deals">3 deals completed</div>
-                    </div>
-                    <div class="winner">
-                        <div class="winner-avatar">
-                            👤
-                            <div class="verified">✓</div>
-                        </div>
-                        <div class="winner-name">Kevin W.</div>
-                        <div class="winner-location">Boston</div>
-                        <div class="winner-deals">4 deals completed</div>
-                    </div>
+          </section>
+          {/* Steps Section */}
+          <section className="py-16 bg-gray-100">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 animate-slide-up">
+                3 Steps to Enter
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066C0] transition duration-300 animate-slide-up">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066C0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">1</div>
+                  <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Answer Questions</h3>
+                  <p className="text-base text-gray-600 text-center">
+                    Complete a quick survey to share your preferences.
+                  </p>
                 </div>
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066C0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066C0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">2</div>
+                  <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Submit Your Info</h3>
+                  <p className="text-base text-gray-600 text-center">
+                    Enter your details to register for the sweepstakes.
+                  </p>
+                </div>
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066C0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066C0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">3</div>
+                  <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Complete 3+ Offers</h3>
+                  <p className="text-base text-gray-600 text-center">
+                    Sign up for three or more offers to qualify.
+                  </p>
+                </div>
+              </div>
             </div>
-        </section>
-    </div>
-
+          </section>
+          {/* Testimonials Section */}
+          <section className="py-16 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 animate-slide-up">
+                Participant Feedback
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                <div className="bg-gray-50 p-6 rounded-md border border-gray-200 animate-slide-up">
+                  <p className="text-base text-gray-600 mb-4">
+                    "The process was easy and took just a few minutes!"
+                  </p>
+                  <p className="text-base font-semibold text-gray-900">– Emma W.</p>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-md border border-gray-200 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                  <p className="text-base text-gray-600 mb-4">
+                    "Excited for a chance to win $1500 to shop on Amazon!"
+                  </p>
+                  <p className="text-base font-semibold text-gray-900">– Noah J.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* Footer */}
+          <footer className="py-8 bg-gray-800 text-gray-300 text-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <p className="text-sm mb-2">
+                © 2025 Amazon Gift Card Sweepstakes. All rights reserved.
+              </p>
+              <p className="text-sm">
+                <a
+                  href="https://www.amazon.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-[#F7CA00]"
+                >
+                  Visit Amazon
+                </a> for more details. | Avoid scams: Only engage with verified offers.
+              </p>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
