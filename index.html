@@ -13,11 +13,46 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     .animate-slide-up {
       animation: slideUp 0.6s ease-out forwards;
     }
+    .animate-fade-in {
+      animation: fadeIn 0.4s ease-in forwards;
+    }
     body {
       font-family: 'Arial', sans-serif; /* Fallback for Amazon Ember */
+    }
+    .quiz-container {
+      background: linear-gradient(180deg, #f5f6f5 0%, #ffffff 100%);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .quiz-option {
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    }
+    .quiz-option:hover, .quiz-option:active {
+      transform: scale(1.03);
+    }
+    .progress-bar {
+      height: 4px;
+      background-color: #0066c0;
+      transition: width 0.3s ease;
+    }
+    @media (max-width: 640px) {
+      .quiz-option {
+        padding: 16px;
+        font-size: 1.1rem;
+      }
+      .quiz-container {
+        padding: 16px;
+      }
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -42,9 +77,66 @@
   <div id="root"></div>
   <script type="text/babel">
     function App() {
+      const [currentQuestion, setCurrentQuestion] = React.useState(0);
+      const [selectedAnswer, setSelectedAnswer] = React.useState('');
+      const [feedback, setFeedback] = React.useState('');
+      const [showButton, setShowButton] = React.useState(false);
+
+      const questions = [
+        {
+          id: 'q1',
+          text: 'Do you live in the USA?',
+          description: 'We are looking for participants from the U.S. to join this exciting sweepstakes!',
+          options: [
+            { value: 'yes', text: 'Yes' },
+            { value: 'no', text: 'No' }
+          ],
+          feedback: 'Thanks for sharing! Let’s move on!'
+        },
+        {
+          id: 'q2',
+          text: 'How often do you shop at Amazon?',
+          description: '',
+          options: [
+            { value: 'daily', text: 'Daily' },
+            { value: 'weekly', text: 'Weekly' },
+            { value: 'monthly', text: 'Monthly' },
+            { value: 'never', text: 'Never' }
+          ],
+          feedback: 'Got it! One more question to go!'
+        },
+        {
+          id: 'q3',
+          text: 'How do you usually discover deals and promotions at Amazon?',
+          description: '',
+          options: [
+            { value: 'flyers', text: 'Store flyers' },
+            { value: 'social', text: 'Social media' },
+            { value: 'app', text: 'Mobile app' },
+            { value: 'friends', text: 'Friends/Family' }
+          ],
+          feedback: 'Awesome! You’re ready to enter the sweepstakes!'
+        }
+      ];
+
+      const handleAnswerSelect = (value) => {
+        setSelectedAnswer(value);
+        setFeedback(questions[currentQuestion].feedback);
+        setTimeout(() => {
+          if (currentQuestion < questions.length - 1) {
+            setCurrentQuestion(currentQuestion + 1);
+            setSelectedAnswer('');
+            setFeedback('');
+          } else {
+            setShowButton(true);
+          }
+        }, 1000);
+      };
+
       const handleButtonClick = () => {
         fbq('track', 'ViewContent');
       };
+
       return (
         <div className="min-h-screen bg-gray-100 text-gray-900">
           {/* Header */}
@@ -65,21 +157,56 @@
                   Chance to Win a $1500 Amazon Gift Card!
                 </h1>
                 <p className="text-lg sm:text-xl mb-10 text-gray-700 max-w-3xl mx-auto">
-                  Follow three simple steps to enter for your chance to shop millions of products on Amazon.
+                  Answer three quick questions to unlock your entry for a chance to shop on Amazon!
                 </p>
-                <a
-                  href="https://rewarduplevel.com/aff_c?offer_id=2588&aff_id=1359"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-[#F7CA00] text-gray-900 font-semibold py-5 px-14 sm:px-20 rounded-md text-xl sm:text-2xl hover:bg-[#F4B800] transition duration-300 shadow-sm hover:shadow-md"
-                  id="cta"
-                  onClick={handleButtonClick}
-                >
-                  Start Your Entry
-                </a>
-                <p className="mt-4 text-sm text-gray-500">
-                  *No purchase necessary. See terms on offer page.
-                </p>
+                {/* Quiz Section */}
+                <div className="quiz-container p-6 sm:p-8 max-w-full sm:max-w-2xl mx-auto">
+                  <div className="progress-bar" style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}></div>
+                  <p className="text-lg sm:text-xl font-semibold mb-4 animate-fade-in text-center">
+                    Question {currentQuestion + 1} of {questions.length}:<br/>{questions[currentQuestion].text}
+                  </p>
+                  {questions[currentQuestion].description && (
+                    <p className="text-sm sm:text-base text-gray-600 mb-6 animate-fade-in text-center">
+                      {questions[currentQuestion].description}
+                    </p>
+                  )}
+                  <div className="flex flex-col gap-4">
+                    {questions[currentQuestion].options.map(option => (
+                      <button
+                        key={option.value}
+                        onClick={() => handleAnswerSelect(option.value)}
+                        className={`quiz-option py-4 px-6 rounded-md text-gray-900 text-base sm:text-lg font-medium text-center shadow-sm ${
+                          selectedAnswer === option.value ? 'bg-[#F4B800]' : 'bg-[#F7CA00]'
+                        } hover:bg-[#F4B800]`}
+                        disabled={!!feedback}
+                      >
+                        {option.text}
+                      </button>
+                    ))}
+                  </div>
+                  {feedback && (
+                    <p className="text-sm sm:text-base mt-4 animate-fade-in text-green-600 text-center">
+                      {feedback}
+                    </p>
+                  )}
+                </div>
+                {showButton && (
+                  <div className="mt-8 animate-fade-in">
+                    <a
+                      href="https://rewarduplevel.com/aff_c?offer_id=2588&aff_id=1359"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-[#F7CA00] text-gray-900 font-semibold py-5 px-14 sm:px-20 rounded-md text-xl sm:text-2xl hover:bg-[#F4B800] transition duration-300 shadow-sm hover:shadow-md"
+                      id="cta"
+                      onClick={handleButtonClick}
+                    >
+                      Start Your Entry
+                    </a>
+                    <p className="mt-4 text-sm text-gray-500">
+                      *No purchase necessary. See terms on offer page.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </section>
@@ -90,22 +217,53 @@
                 3 Steps to Enter
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066C0] transition duration-300 animate-slide-up">
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066C0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">1</div>
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066c0] transition duration-300 animate-slide-up">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066c0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">1</div>
                   <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Answer Questions</h3>
                   <p className="text-base text-gray-600 text-center">
                     Complete a quick survey to share your preferences.
                   </p>
                 </div>
-                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066C0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066C0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">2</div>
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066c0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066c0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">2</div>
                   <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Submit Your Info</h3>
                   <p className="text-base text-gray-600 text-center">
                     Enter your details to register for the sweepstakes.
                   </p>
                 </div>
-                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066C0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066C0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">3</div>
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066c0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066c0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">3</div>
+                  <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Complete 3+ Offers</h3>
+                  <p className="text-base text-gray-600 text-center">
+                    Sign up for three or more offers to qualify.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* Steps Section */}
+          <section className="py-16 bg-gray-100">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12 animate-slide-up">
+                3 Steps to Enter
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066c0] transition duration-300 animate-slide-up">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066c0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">1</div>
+                  <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Answer Questions</h3>
+                  <p className="text-base text-gray-600 text-center">
+                    Complete a quick survey to share your preferences.
+                  </p>
+                </div>
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066c0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066c0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">2</div>
+                  <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Submit Your Info</h3>
+                  <p className="text-base text-gray-600 text-center">
+                    Enter your details to register for the sweepstakes.
+                  </p>
+                </div>
+                <div className="relative bg-white p-6 rounded-md border border-gray-200 hover:border-[#0066c0] transition duration-300 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#0066c0] text-white text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center">3</div>
                   <h3 className="text-lg font-semibold mt-4 mb-2 text-center">Complete 3+ Offers</h3>
                   <p className="text-base text-gray-600 text-center">
                     Sign up for three or more offers to qualify.
@@ -123,13 +281,13 @@
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                 <div className="bg-gray-50 p-6 rounded-md border border-gray-200 animate-slide-up">
                   <p className="text-base text-gray-600 mb-4">
-                    "The process was easy and took just a few minutes!"
+                    "The quiz was quick and got me excited to win!"
                   </p>
                   <p className="text-base font-semibold text-gray-900">– Emma W.</p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-md border border-gray-200 animate-slide-up" style={{ animationDelay: '0.2s' }}>
                   <p className="text-base text-gray-600 mb-4">
-                    "Excited for a chance to win $1500 to shop on Amazon!"
+                    "Super easy and fun way to enter the sweepstakes!"
                   </p>
                   <p className="text-base font-semibold text-gray-900">– Noah J.</p>
                 </div>
@@ -147,7 +305,7 @@
                   href="https://www.amazon.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-[#F7CA00]"
+                  className="underline hover:text-[#f7ca00]"
                 >
                   Visit Amazon
                 </a> for more details. | Avoid scams: Only engage with verified offers.
