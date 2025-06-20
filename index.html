@@ -17,8 +17,15 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // Initialize pixel
     fbq('init', '593018253855738');
+    
+    // Track PageView - standard event
     fbq('track', 'PageView');
+    
+    // Disable automatic configuration to prevent auto-detection
+    fbq('set', 'autoConfig', 'false', '593018253855738');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=593018253855738&ev=PageView&noscript=1"
@@ -605,12 +612,17 @@
         function addPixelTracking() {
             const ctaButtons = document.querySelectorAll('.cta-button');
             ctaButtons.forEach(button => {
+                // Add data attribute to prevent Facebook auto-detection
+                button.setAttribute('data-fb-ignore', 'true');
+                
                 button.addEventListener('click', function() {
                     // Track ViewContent event when button is clicked
                     if (typeof fbq !== 'undefined') {
                         fbq('track', 'ViewContent', {
+                            content_ids: ['amazon-gift-card-1500'],
+                            content_type: 'product',
                             content_name: 'Amazon $1500 Gift Card',
-                            content_category: 'Gift Card Offer',
+                            content_category: 'Gift Card',
                             value: 1500.00,
                             currency: 'USD'
                         });
@@ -662,7 +674,7 @@
             <div class="emoji-accent">💳 🛍️</div>
 
             <a href="https://rewarduplevel.com/aff_c?offer_id=2588&aff_id=1359&source=xxx" class="cta-button">
-                Get Started <span class="arrow">→</span>
+                Claim Now <span class="arrow">→</span>
             </a>
 
             <div class="rating-section">
