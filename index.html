@@ -17,6 +17,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('set', 'autoConfig', 'false', '593018253855738');
     fbq('init', '593018253855738');
     fbq('track', 'PageView');
     </script>
@@ -137,8 +138,8 @@
             margin: 20px 0;
         }
 
-        /* CTA Button */
-        .cta-button {
+        /* Action Link Button */
+        .action-link {
             display: inline-block;
             background: #FF9900;
             color: white;
@@ -151,9 +152,12 @@
             box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
             letter-spacing: -0.5px;
             margin: 20px 0;
+            cursor: pointer;
+            border: none;
+            position: relative;
         }
 
-        .cta-button:hover {
+        .action-link:hover {
             background: #E88B00;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
@@ -165,7 +169,7 @@
             transition: transform 0.2s ease;
         }
 
-        .cta-button:hover .arrow {
+        .action-link:hover .arrow {
             transform: translateX(5px);
         }
 
@@ -321,8 +325,8 @@
 
             <div class="emoji-row">💳 🛍️</div>
 
-            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2588&aff_id=1359" class="cta-button">
-                Claim Your Card <span class="arrow">→</span>
+            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2588&aff_id=1359" class="action-link" data-fb-ignore="1" onclick="fbq('track', 'ViewContent', {content_name: 'Amazon Gift Card Offer', value: 1500, currency: 'USD'});">
+                Check Eligibility <span class="arrow">→</span>
             </a>
 
             <div class="rating">
