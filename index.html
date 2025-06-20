@@ -18,14 +18,17 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // Initialize pixel
+    // Wait for fbq to be ready before tracking
     fbq('init', '593018253855738');
     
-    // Track PageView - standard event
-    fbq('track', 'PageView');
-    
-    // Disable automatic configuration to prevent auto-detection
+    // Disable automatic configuration first
     fbq('set', 'autoConfig', 'false', '593018253855738');
+    
+    // Use setTimeout to ensure pixel is fully loaded
+    setTimeout(function() {
+        // Track standard PageView event
+        fbq('track', 'PageView');
+    }, 100);
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=593018253855738&ev=PageView&noscript=1"
