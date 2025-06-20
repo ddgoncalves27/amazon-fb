@@ -7,7 +7,7 @@
     <title>Amazon Gift Card - Get $1500 Free | Claim Now</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
     
-    <!-- Meta Pixel Code -->
+    <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -23,7 +23,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=593018253855738&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- End Facebook Pixel Code -->
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
@@ -49,7 +49,7 @@
             min-height: 100vh;
         }
 
-        /* Container - UPDATED: Removed max-width */
+        /* Container */
         .container {
             width: 100%;
             margin: 0 auto;
@@ -146,7 +146,6 @@
             text-transform: uppercase;
             color: #000;
             font-family: 'Inter', Arial Black, sans-serif;
-            /* UPDATED: Removed max-width */
         }
 
         .description {
@@ -154,7 +153,7 @@
             line-height: 1.4;
             color: #4a4a4a;
             margin-bottom: 22px;
-            max-width: 800px; /* UPDATED: Increased from 640px for better readability on wide screens */
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 400;
@@ -169,7 +168,7 @@
         .cta-button {
             display: block;
             width: calc(100% - 40px);
-            max-width: 600px; /* UPDATED: Increased from 480px */
+            max-width: 600px;
             margin: 25px auto 30px;
             background: #FF9900;
             color: #FFFFFF;
@@ -229,7 +228,7 @@
             font-weight: 400;
         }
 
-        /* Influencer Section - UPDATED: Full width background */
+        /* Influencer Section */
         .influencer-section {
             margin-top: 45px;
             padding: 50px 20px 45px;
@@ -566,8 +565,8 @@
 <body>
     <!-- Dynamic Source Script -->
     <script>
-        // Function to get source code from URL
-        function getSourceCode() {
+        // Function to get source code from URL - made global for inline scripts
+        window.getSourceCode = function() {
             const hostname = window.location.hostname;
             const pathname = window.location.pathname;
             let sourceCode = 'xxx'; // default
@@ -595,34 +594,65 @@
             const newURL = baseURL + sourceCode;
             
             // Update all CTA buttons
-            const ctaButtons = document.querySelectorAll('.cta-button');
+            const ctaButtons = document.querySelectorAll('.cta-button, .action-link-primary');
             ctaButtons.forEach(button => {
                 button.href = newURL;
+                
+                // Add multiple anti-tracking attributes
+                button.setAttribute('data-fb-ignore', 'true');
+                button.setAttribute('data-fb-event', 'false');
+                button.setAttribute('data-action', 'external');
+                button.setAttribute('data-track', 'false');
+                button.setAttribute('rel', 'nofollow external');
+                
+                // Remove any Facebook tracking classes if they exist
+                button.classList.remove('fb-track', '_fb_track', 'fb-pixel-track');
             });
         }
         
         // Add Facebook Pixel ViewContent tracking to CTA buttons
         function addPixelTracking() {
-            const ctaButtons = document.querySelectorAll('.cta-button');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Track ViewContent event when button is clicked
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'ViewContent', {
-                            content_name: 'Amazon Gift Card $1500',
-                            content_category: 'Gift Cards',
-                            value: 1500.00,
-                            currency: 'USD'
-                        });
-                    }
-                });
-            });
+            // Tracking is now handled inline with the button
+            // This function is kept for compatibility but doesn't need to do anything
         }
         
         // Run when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             updateCTALinks();
             addPixelTracking();
+            
+            // Extra protection: Remove Facebook tracking after a delay
+            setTimeout(function() {
+                const buttons = document.querySelectorAll('.cta-button, .action-link-primary');
+                buttons.forEach(button => {
+                    // Remove any Facebook-added classes
+                    const classes = Array.from(button.classList);
+                    classes.forEach(className => {
+                        if (className.includes('fb') || className.includes('FB')) {
+                            button.classList.remove(className);
+                        }
+                    });
+                    
+                    // Re-enforce anti-tracking attributes
+                    button.setAttribute('data-fb-ignore', 'true');
+                    button.removeAttribute('data-fb-event-id');
+                    button.removeAttribute('data-fb-tracking');
+                });
+            }, 1000);
+            
+            // Watch for Facebook trying to modify our buttons
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.target.classList && (mutation.target.classList.contains('cta-button') || mutation.target.classList.contains('action-link-primary'))) {
+                        mutation.target.setAttribute('data-fb-ignore', 'true');
+                    }
+                });
+            });
+            
+            // Start observing
+            document.querySelectorAll('.cta-button, .action-link-primary').forEach(button => {
+                observer.observe(button, { attributes: true, attributeOldValue: true });
+            });
         });
     </script>
 
@@ -661,7 +691,7 @@
 
             <div class="emoji-accent">💳 🛍️</div>
 
-            <a href="https://rewarduplevel.com/aff_c?offer_id=2588&aff_id=1359&source=xxx" class="cta-button">
+            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2588&aff_id=1359" class="cta-button">
                 Claim Now <span class="arrow">→</span>
             </a>
 
